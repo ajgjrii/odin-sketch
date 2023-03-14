@@ -15,7 +15,9 @@ body {
 }
 
 .sketch {
-    background-color: rgb(0,0,255,1);
+    background-color: rgb(255,255,255,1);
+    display: flex;
+    flex: 1;
     width: 600px;
     height: 600px;
 }
@@ -23,4 +25,25 @@ body {
 .bottom {
     display: flex;
     flex: 1;
+}
+
+.row {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    width: max-content;
+    border-style:solid;
+    border-width: 1px;
+}
+
+.col {
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    border-style:solid;
+    border-width: 1px;
+}
+
+.fill {
+    background-color: rgb(198, 4, 241);
 }
