@@ -32,18 +32,17 @@ body {
     flex:1;
     flex-direction: column;
     width: max-content;
-    border-style:solid;
-    border-width: 1px;
 }
 
 .col {
     display: flex;
     flex-direction: row;
     flex:1;
-    border-style:solid;
-    border-width: 1px;
+    border-width: .01px;
+    border-color: rgb(0,0,0,0.1);
+    border-style: inset;
 }
 
-.fill {
+.filler {
     background-color: rgb(198, 4, 241);
 }
