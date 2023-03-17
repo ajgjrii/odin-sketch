@@ -1,6 +1,7 @@
 // const grid is needed for DOM methods
 const grid = document.querySelector('.sketch');
 
+
 function createPixels (row, column){
     n=1;
 
@@ -17,7 +18,7 @@ function createPixels (row, column){
         }
     } 
 
-createPixels(15,15);
+createPixels(10, 10);
 
 // Array needed for SelectorAll
 const filling = Array.from(document.querySelectorAll('.col'));
@@ -37,3 +38,7 @@ function fill() {
     const empty = Array.from(document.querySelectorAll('.filler'));
     empty.forEach(empty => empty.classList.remove('filler'));
  }
+
+
+ 
+
