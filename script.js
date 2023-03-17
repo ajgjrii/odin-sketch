@@ -22,13 +22,22 @@ function createPixels (row, column){
 
 createPixels(8,8);
 
-
-const pixel = Array.from(document.querySelectorAll('.col'));
-pixel.forEach(pixel => pixel.addEventListener('mouseover', fill));
-
+// Array needed for SelectorAll
+const filling = Array.from(document.querySelectorAll('.col'));
 
 
+// forEach is needed since filling is an array
+filling.forEach(filling => filling.addEventListener('mouseover', fill));
+
+
+
+// function adds a class called "filler" to any div.col elements
 function fill() {
-    //var fillMe = document.getElementsByClassName('col');
     this.classList.add('filler');
 }
+
+const reset = document.querySelector('#reset');
+reset.addEventListener('click', () => {
+    const empty = Array.from(document.querySelectorAll('.filler'));
+    empty.forEach(empty => empty.classList.remove('filler'));
+})
