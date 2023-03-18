@@ -1,3 +1,4 @@
+let n = 4;
 // function creates the "pixels" in div.sketch
 function createPixels (row, column){
     for (let i = 1; i <= row; ++i) {
@@ -30,36 +31,74 @@ function removeAllChildNodes(parent) {
     }
  }
 
+// This function will be copied/pasted into buttons to change grid size
+function generator (input) {
+    n = input;
+    // These two lines remove all child nodes for div.sketch
+    const sketch = document.querySelector('.sketch');
+    removeAllChildNodes(sketch);
+    // this calls the pixel creation function
+    createPixels(n,n);
+    // These two lines create the ability to fill
+    const filling = Array.from(document.querySelectorAll('.col'));
+    filling.forEach(filling => filling.addEventListener('mouseover', fill));
+}
+
 // const grid is needed for DOM methods
 const grid = document.querySelector('.sketch');
 // These two lines allow reset button to remove div.filler
 const reset = document.querySelector('#reset');
 reset.addEventListener('click', clear)
 
-// This block of code changes the grid size; similar blocks will not have comments
-const ten = document.querySelector('#ten');
-ten.addEventListener('click', () => {
-    // These two lines remove all child nodes for div.sketch
-    const sketch = document.querySelector('.sketch');
-    removeAllChildNodes(sketch);
-    // this calls the pixel creation function
-    createPixels(10, 10);
-    // These two lines create the ability to fill
-    const filling = Array.from(document.querySelectorAll('.col'));
-    filling.forEach(filling => filling.addEventListener('mouseover', fill));
-});
+// This will display dimensions for grid
+const controlSpace = document.querySelector('.controls');
+const dimensions = document.createElement('h3');
+dimensions.textContent = `DIMENSIONS: ${n} x ${n}`;
+controlSpace.appendChild(dimensions);
 
-const fifteen = document.querySelector('#fifteen');
-fifteen.addEventListener('click', () => {
-    const sketch = document.querySelector('.sketch');
-    removeAllChildNodes(sketch);
-    createPixels(15,15);
-    const filling = Array.from(document.querySelectorAll('.col'));
-    filling.forEach(filling => filling.addEventListener('mouseover', fill));
-});
+generator(n);
 
+// Block is control for button
+const plusten = document.querySelector('#plusten');
+plusten.addEventListener('click', () => {
+    if (n < 40){    
+        n = n + 10;
+        generator(n);
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        return n;
+    }
+})
 
+// Block is control for button
+const minusten = document.querySelector('#minusten');
+minusten.addEventListener('click', () => {
+    if (n > 10) {
+        n = n - 10;
+        generator(n);
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        return n;
+    }
+})
 
+// Block is control for button
+const plus = document.querySelector('#plus');
+plus.addEventListener('click', () => {
+    if (n < 50){
+        ++n;
+        generator(n);
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        return n;
+    }
+})
 
- 
+// Block is control for button
+const minus = document.querySelector('#minus');
+minus.addEventListener('click', () => {
+    if (n > 1){
+        --n;
+        generator(n);
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        return n;
+    }
+})
 
