@@ -44,7 +44,7 @@ function generator (input) {
     filling.forEach(filling => filling.addEventListener('mouseover', fill));
 }
 
-// const grid is needed for DOM methods
+// const grid is needed for DOM methods to append pixels
 const grid = document.querySelector('.sketch');
 // These two lines allow reset button to remove div.filler
 const reset = document.querySelector('#reset');
@@ -64,7 +64,7 @@ plusten.addEventListener('click', () => {
     if (n < 40){    
         n = n + 10;
         generator(n);
-        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`;
         return n;
     }
 })
@@ -75,7 +75,7 @@ minusten.addEventListener('click', () => {
     if (n > 10) {
         n = n - 10;
         generator(n);
-        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`;
         return n;
     }
 })
@@ -86,7 +86,7 @@ plus.addEventListener('click', () => {
     if (n < 50){
         ++n;
         generator(n);
-        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`;
         return n;
     }
 })
@@ -97,7 +97,7 @@ minus.addEventListener('click', () => {
     if (n > 1){
         --n;
         generator(n);
-        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`
+        dimensions.textContent = `DIMENSIONS: ${n} x ${n}`;
         return n;
     }
 })
